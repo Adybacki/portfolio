@@ -30,20 +30,29 @@ const App = () => {
       <section className="education">
         <h2>Education</h2>
         <div className="degree">
-          <h3 class="font-bold">Bachelor of Arts in Computer Science</h3>
+          <h3 class="font-bold">Bachelor of Arts in Computer Science with a minor in Data Science</h3>
           <p>Boston University - Anticipated May 2026</p>
         </div>
       </section>
       <section className="coursework">
         <h2>Courses</h2>
           <ul>
-            <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-111/" target="_blank" rel="noreferrer">CS111 - Intro to Computer Science I</a></li>
-            <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-112/" target="_blank" rel="noreferrer">CS112 - Intro to Computer Science II</a></li>
-            <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-131/" target="_blank" rel="noreferrer">CS131 - Combinatoric Structures</a></li>
-            <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-132/" target="_blank" rel="noreferrer">CS132 - Geometric Algorithms</a></li>
-            <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-210/" target="_blank" rel="noreferrer">CS210 - Computer Systems</a></li>
-            <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-237/" target="_blank" rel="noreferrer">CS237 - Probability in Computing</a></li>
-            <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-330/" target="_blank" rel="noreferrer">CS330 - Introduction to Analysis of Algorithms</a></li>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <div>
+                <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-111/" target="_blank" rel="noreferrer">CS111 - Intro to Computer Science I</a></li>
+                <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-112/" target="_blank" rel="noreferrer">CS112 - Intro to Computer Science II</a></li>
+                <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-131/" target="_blank" rel="noreferrer">CS131 - Combinatoric Structures</a></li>
+                <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-132/" target="_blank" rel="noreferrer">CS132 - Geometric Algorithms</a></li>
+                <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-210/" target="_blank" rel="noreferrer">CS210 - Computer Systems</a></li>
+              </div>
+              <div>
+                <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-237/" target="_blank" rel="noreferrer">CS237 - Probability in Computing</a></li>
+                <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cds-ds-310/" target="_blank" rel="noreferrer">DS310 - Data Mechanics</a></li>
+                <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-320/" target="_blank" rel="noreferrer">CS320 - Concepts of Programming Languages</a></li>
+                <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-330/" target="_blank" rel="noreferrer">CS330 - Introduction to Analysis of Algorithms</a></li>
+                <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-411/" target="_blank" rel="noreferrer">CS411 - Software Engineering</a></li>
+              </div>
+            </div>
           </ul>
         </section>
       <section className="projects">
@@ -56,7 +65,7 @@ const App = () => {
     MBTA Station Clocks
   </p>
   <p class="card__descr">
-  App built using Flask that displays real-time train arrival information for MBTA rapid transit stations, replicating the on-platform clocks.
+  App built using Flask that displays real-time train arrival information for MBTA transit stations, replicating the on-platform clocks.
   </p>
   <div class="card__links">
     <div>
