@@ -25,20 +25,20 @@ const App = () => {
         </center>
         <nav className="tab-navigation">
           <ul className="tab-list">
-            <li><NavLink to="/" className={({ isActive }) => isActive ? "tab-active" : "tab"}>About Me</NavLink></li>
-            <li><NavLink to="/skills" className={({ isActive }) => isActive ? "tab-active" : "tab"}>Skills</NavLink></li>
-            <li><NavLink to="/projects" className={({ isActive }) => isActive ? "tab-active" : "tab"}>Projects</NavLink></li>
-            <li><NavLink to="/coursework" className={({ isActive }) => isActive ? "tab-active" : "tab"}>Coursework</NavLink></li>
-            <li><NavLink to="/contact" className={({ isActive }) => isActive ? "tab-active" : "tab"}>Contact Info</NavLink></li>
+            <li><NavLink to="/portfolio/" className={({ isActive }) => window.location.pathname.endsWith("/portfolio/") || window.location.pathname.endsWith("/portfolio") ? "tab-active" : "tab"}>About Me</NavLink></li>
+            <li><NavLink to="/portfolio/skills" className={({ isActive }) => isActive ? "tab-active" : "tab"}>Skills</NavLink></li>
+            <li><NavLink to="/portfolio/projects" className={({ isActive }) => isActive ? "tab-active" : "tab"}>Projects</NavLink></li>
+            <li><NavLink to="/portfolio/coursework" className={({ isActive }) => isActive ? "tab-active" : "tab"}>Coursework</NavLink></li>
+            <li><NavLink to="/portfolio/contact" className={({ isActive }) => isActive ? "tab-active" : "tab"}>Contact Info</NavLink></li>
           </ul>
         </nav>
         <main>
           <Routes>
-            <Route path="/" element={<Home handleDownload={handleDownload} />} />
-            <Route path="/skills" element={<Skills />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/coursework" element={<Coursework />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/portfolio" element={<Home handleDownload={handleDownload} />} />
+            <Route path="/portfolio/skills" element={<Skills />} />
+            <Route path="/portfolio/projects" element={<Projects />} />
+            <Route path="/portfolio/coursework" element={<Coursework />} />
+            <Route path="/portfolio/contact" element={<Contact />} />
           </Routes>
         </main>
       </div>
