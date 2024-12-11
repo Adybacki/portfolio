@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 
 const App = () => {
   const handleDownload = () => {
@@ -10,52 +12,157 @@ const App = () => {
     link.click();
   };
   return (
-    <div className="app-container">
-      <header>
-        <h1 class="text-blue-400 font-extrabold text-3xl">Adrian (AJ) Dybacki</h1>
-        <p class="text-orange-500">Computer Science Student @ Boston University</p>
-      </header>
-      <center>
-      <button onClick={handleDownload} class="cursor-pointer group relative flex gap-1.5 px-8 py-4 bg-blue-400 bg-opacity-80 text-[#f1f1f1] rounded-3xl hover:bg-opacity-70 transition font-semibold shadow-md">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="24px" width="24px"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Download"> <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#f1f1f1" d="M6 21H18M12 3V17M12 17L17 12M12 17L7 12" id="Vector"></path> </g> </g></svg>
-         Download Resume
-</button>
-      </center>
-      <section className="about-me">
-        <h2>About Me</h2>
-        <p>
-        I am a sophomore Computer Science student with a passion for coding and a strong desire to enhance my skills. I am dedicated to learning and growing as a developer, and I am eager to showcase my projects and experiences in the field of computer science.
-        </p>
-      </section>
-      <section className="education">
-        <h2>Education</h2>
-        <div className="degree">
-          <h3 class="font-bold">Bachelor of Arts in Computer Science with a minor in Data Science</h3>
-          <p>Boston University - Anticipated May 2026</p>
-        </div>
-      </section>
-      <section className="coursework">
-        <h2>Courses</h2>
-          <ul>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <div>
-                <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-111/" target="_blank" rel="noreferrer">CS111 - Intro to Computer Science I</a></li>
-                <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-112/" target="_blank" rel="noreferrer">CS112 - Intro to Computer Science II</a></li>
-                <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-131/" target="_blank" rel="noreferrer">CS131 - Combinatoric Structures</a></li>
-                <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-132/" target="_blank" rel="noreferrer">CS132 - Geometric Algorithms</a></li>
-                <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-210/" target="_blank" rel="noreferrer">CS210 - Computer Systems</a></li>
-              </div>
-              <div>
-                <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-237/" target="_blank" rel="noreferrer">CS237 - Probability in Computing</a></li>
-                <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cds-ds-310/" target="_blank" rel="noreferrer">DS310 - Data Mechanics</a></li>
-                <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-320/" target="_blank" rel="noreferrer">CS320 - Concepts of Programming Languages</a></li>
-                <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-330/" target="_blank" rel="noreferrer">CS330 - Introduction to Analysis of Algorithms</a></li>
-                <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-411/" target="_blank" rel="noreferrer">CS411 - Software Engineering</a></li>
-              </div>
-            </div>
+    <Router>
+      <div className="app-container">
+        <header>
+          <h1 className="text-blue-400 font-extrabold text-3xl">Adrian (AJ) Dybacki</h1>
+          <p className="text-orange-500">Computer Science Student @ Boston University</p>
+        </header>
+        <center>
+          <button onClick={handleDownload} className="cursor-pointer group relative flex gap-1.5 px-8 py-4 bg-blue-400 bg-opacity-80 text-[#f1f1f1] rounded-3xl hover:bg-opacity-70 transition font-semibold shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="24px" width="24px"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Download"> <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#f1f1f1" d="M6 21H18M12 3V17M12 17L17 12M12 17L7 12" id="Vector"></path> </g> </g></svg>
+            Download Resume
+          </button>
+        </center>
+        <nav className="tab-navigation">
+          <ul className="tab-list">
+            <li><NavLink to="/" className={({ isActive }) => isActive ? "tab-active" : "tab"}>About Me</NavLink></li>
+            <li><NavLink to="/skills" className={({ isActive }) => isActive ? "tab-active" : "tab"}>Skills</NavLink></li>
+            <li><NavLink to="/projects" className={({ isActive }) => isActive ? "tab-active" : "tab"}>Projects</NavLink></li>
+            <li><NavLink to="/coursework" className={({ isActive }) => isActive ? "tab-active" : "tab"}>Coursework</NavLink></li>
+            <li><NavLink to="/contact" className={({ isActive }) => isActive ? "tab-active" : "tab"}>Contact Info</NavLink></li>
           </ul>
-        </section>
-      <section className="projects">
+        </nav>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home handleDownload={handleDownload} />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/coursework" element={<Coursework />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
+  );
+};
+
+const Home = () => (
+  <section className="home">
+    <h2>About Me</h2>
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <img 
+        src={`${process.env.PUBLIC_URL}/headshot.jpg`} 
+        alt="AJ Dybacki Headshot" 
+        className="profile-img"
+        style={{ marginRight: '20px' }}
+      />
+      <p>
+      I am a Computer Science student at Boston University, with a minor in Data Science, driven by a deep passion for coding, problem-solving, and exploring the dynamic world of technology.
+      As I continue to grow as a developer, I'm focused on building my skills, learning new technologies, and collaborating with others in the tech community. I thrive in environments where I can learn from others and bring fresh perspectives to solve complex problems.
+      </p>
+    </div>
+    <section className="education">
+      <h2>Education</h2>
+      <div className="degree">
+        <h3 className="font-bold">Bachelor of Arts in Computer Science with a minor in Data Science</h3>
+        <p>Boston University - Anticipated May 2026</p>
+      </div>
+    </section>
+  </section>
+);
+
+const Skills = () => (
+  <section className="skills">
+    <h2>Languages & Skills</h2>
+  <div className="skills-grid">
+    <div className="skill-category">
+      <h3>Programming Languages</h3>
+      <ul>
+        <li>Python</li>
+        <li>Java</li>
+        <li>C</li>
+        <li>OCaml</li>
+        <li>TypeScript</li>
+        <li>JavaScript</li>
+      </ul>
+    </div>
+    <div className="skill-category">
+      <h3>Web Development</h3>
+      <ul>
+        <li>React.js</li>
+        <li>Node.js</li>
+        <li>Next.js</li>
+        <li>HTML/CSS</li>
+        <li>RESTful APIs</li>
+        <li>Websockets</li>
+      </ul>
+    </div>
+    <div className="skill-category">
+      <h3>Backend/Deployment</h3>
+      <ul>
+        <li>Flask</li>
+        <li>Google Cloud Platform</li>
+        <li>Docker</li>
+      </ul>
+    </div>
+    <div className="skill-category">
+      <h3>Databases</h3>
+      <ul>
+        <li>MongoDB</li>
+        <li>PostgreSQL</li>
+        <li>SQL</li>
+      </ul>
+    </div>
+    <div className="skill-category">
+      <h3>Tools & Platforms</h3>
+      <ul>
+        <li>Git</li>
+        <li>GitHub</li>
+        <li>Unix</li>
+        <li>LaTeX</li>
+      </ul>
+    </div>
+    <div className="skill-category">
+      <h3>Soft Skills</h3>
+      <ul>
+        <li>Communication</li>
+        <li>Problem Solving</li>
+        <li>Teamwork/Collaboration</li>
+        <li>Adaptability</li>
+        <li>Time Management</li>
+        <li>Willingness to Learn</li>
+      </ul>
+    </div>
+  </div>
+    </section>
+);
+const Coursework = () => (
+  <section className="coursework">
+  <h2>Courses</h2>
+    <ul>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div>
+          <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-111/" target="_blank" rel="noreferrer">CS111 - Intro to Computer Science I</a></li>
+          <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-112/" target="_blank" rel="noreferrer">CS112 - Intro to Computer Science II</a></li>
+          <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-131/" target="_blank" rel="noreferrer">CS131 - Combinatoric Structures</a></li>
+          <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-132/" target="_blank" rel="noreferrer">CS132 - Geometric Algorithms</a></li>
+          <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-210/" target="_blank" rel="noreferrer">CS210 - Computer Systems</a></li>
+        </div>
+        <div>
+          <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-237/" target="_blank" rel="noreferrer">CS237 - Probability in Computing</a></li>
+          <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cds-ds-310/" target="_blank" rel="noreferrer">DS310 - Data Mechanics</a></li>
+          <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-320/" target="_blank" rel="noreferrer">CS320 - Concepts of Programming Languages</a></li>
+          <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-330/" target="_blank" rel="noreferrer">CS330 - Introduction to Analysis of Algorithms</a></li>
+          <li><a class="link" href="https://www.bu.edu/academics/cas/courses/cas-cs-411/" target="_blank" rel="noreferrer">CS411 - Software Engineering</a></li>
+        </div>
+      </div>
+    </ul>
+  </section>
+);
+
+const Projects = () => (
+  <section className="projects">
          <h2>Projects</h2>
          <center>
          <div class="card">
@@ -143,8 +250,33 @@ const App = () => {
 </div>
          </center>
       </section>
-    </div>
-  );
-};
+);
+
+const Contact = () => (
+  <section className="contact">
+    <h2>Contact</h2>
+    <p>
+      Email: <a href="mailto:adybacki@bu.edu" className="text-blue-500 hover:underline">adybacki@bu.edu</a> | 
+      <a 
+        href="https://www.linkedin.com/in/adrian-dybacki" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="text-blue-500 hover:underline"
+        style={{ marginLeft: '10px' }}
+      >
+        LinkedIn
+      </a> | 
+      <a 
+        href="https://github.com/adybacki" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="text-blue-500 hover:underline"
+        style={{ marginLeft: '10px' }}
+      >
+        GitHub
+      </a>
+    </p>
+  </section>
+);
 
 export default App;
